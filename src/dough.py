@@ -21,6 +21,7 @@ class Dough:
             if self.ingredients[i] == None:
                 print(f'Es fehlt noch {i}!')
                 finished = False
+                break
         return finished
 
 
