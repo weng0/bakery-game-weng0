@@ -1,5 +1,5 @@
 '''
-Python Klasse für den Bäcker
+Der Bäcker und alle seine Tätigkeiten
 '''
 from dough import Dough
 
@@ -15,11 +15,10 @@ class Baker:
 
     def mix_ingredients(self):
         ''' Alle Zutaten für das Brot werden in einer Masse vermischt.
-        Eingabeparametern sind die Zutaten
-        Rückgabewert ist der Teig
-        Die Funktion fordert solange nach einer Eingabe, bis man alle fehlende Zutaten eingegeben hat
+        Die Funktion fordert solange nach einer Eingabe, bis man alle fehlende Zutaten eins nach dem anderen eingegeben hat.
+        Rückgabewert ist der Teig.
         '''
-        self.setNewDough()
+        #self.setNewDough()
         while self.dough_0.isFinished() == False:
             print('Was wollen Sie hinzugeben?\n', '1.Wasser\n', '2.Mehl\n')
             choice = input()
@@ -32,6 +31,7 @@ class Baker:
                     print('Bitte die korrekte Menge an Mehl eingeben.'+'\n')
                     inp = input()
                     self.dough_0.flour = inp
+            self.dough_0.updateMass() # dadurch werden die Werte in ingredients überschrieben
         return self.dough_0
 
     def knead_dough(self, something):
@@ -42,5 +42,6 @@ class Baker:
         '''Durch dieser Methode wird der Teig in kleineren Teile zerteilt und geformt. Der Teig wird als Parameter übergeben.'''
         pass
 
-baker = Baker('Max','Mustermann', 3800)
-baker.mix_ingredients()
+# baker = Baker('Max','Mustermann', 3800)
+# baker.setNewDough()
+# baker.mix_ingredients()

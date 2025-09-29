@@ -1,7 +1,7 @@
 '''
 Der Teig kommt zustande, wenn man alle benötigen Zutaten zusammen gemischt hat
 '''
-class Dough:
+class Dough: # alle eingaben
     def __init__(self, water=None, flour=None, milk=None, salt=None, sugar=None, butter=None, yeast=None):
         self.water = water
         self.flour = flour
@@ -10,23 +10,21 @@ class Dough:
         self.sugar = sugar
         self.butter = butter
         self.yeast = yeast
-        self.ingredients = {'Water':self.water, 'Flour':self.flour} # es fehlen noch die restlichen
+        self.ingredients = {'Water':self.water, 'Flour':self.flour} # der Rest fehlt noch
+
+    def updateMass(self): # Diese Funktion aktualisiert ingredients dictionary
+        self.ingredients.update({'Water':self.water, 'Flour':self.flour})
+        
 
     def dough_rise(self, time) -> bool:
         pass
 
-    def isFinished(self) -> bool:
+    def isFinished(self) -> bool: # Fehler liegt bei ingredients dictionary, es muss stets aktualisiert werden
+        # Diese Funktion geht solange durch die Zutatenliste, bis festgestellt wird, dass ein Zutat noch fehlt
         finished = True
-        for i in self.ingredients: # Solange durch die Zutatenliste gehen, bis geprüft wird, dass ein Zutat noch fehlt
-            if self.ingredients[i] == None:
+        for i in self.ingredients:
+            if self.ingredients[i] is None:
                 print(f'Es fehlt noch {i}!')
                 finished = False
                 break
         return finished
-
-
-teig = Dough(100, 300)
-
-status = teig.isFinished()
-print(status)
-
