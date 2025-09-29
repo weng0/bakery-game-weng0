@@ -11,6 +11,8 @@ class Dough: # alle eingaben
         self.butter = butter
         self.yeast = yeast
         self.ingredients = {'Wasser':self.water, 'Mehl':self.flour, 'Milch': self.milk, 'Salz':self.salt, 'Zucker':self.sugar, 'Butter':self.butter, 'Hefe':self.yeast} # Das ist die Zutatenliste
+        self.kneaded : bool = False
+
 
     def updateMass(self): # Diese Funktion aktualisiert ingredients dictionary
         self.ingredients.update({'Wasser':self.water, 'Mehl':self.flour, 'Milch': self.milk, 'Salz':self.salt, 'Zucker':self.sugar, 'Butter':self.butter, 'Hefe':self.yeast})

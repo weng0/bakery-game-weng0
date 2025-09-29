@@ -20,7 +20,6 @@ class Baker:
         '''
         #self.setNewDough()
         while self.dough_0.isFinished() == False:
-            
             print('Was wollen Sie hinzugeben?\n', '1.Wasser\n', '2.Mehl\n','3.Milch\n','4.Salz\n','5.Zucker\n', '6.Butter\n','7.Hefe\n')
             choice = input()
             match choice:
@@ -55,11 +54,11 @@ class Baker:
             self.dough_0.updateMass() # dadurch werden die Werte in ingredients überschrieben
         return self.dough_0
 
-    def knead_dough(self, something):
-        '''Durch das Methode Kneten wird der Teig, der als Eingabeparameter übergeben wird, bearbeitet.'''
-        pass
+    def knead_dough(self):
+        '''Teig wird geknetet. Setzt den Zustand auf 'Teig geknetet', in Form einer bool-Wert'''
+        self.dough_0.kneaded = True
 
-    def form_dough(self, something):
+    def devide_and_form(self, something): # statt form_dough
         '''Durch dieser Methode wird der Teig in kleineren Teile zerteilt und geformt. Der Teig wird als Parameter übergeben.'''
         pass
 
