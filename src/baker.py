@@ -31,6 +31,26 @@ class Baker:
                     print('Bitte die korrekte Menge an Mehl eingeben.'+'\n')
                     inp = input()
                     self.dough_0.flour = inp
+                case '3':
+                    print('Bitte die korrekte Menge an Milch eingeben.'+'\n')
+                    inp = input()
+                    self.dough_0.milk
+                case '4':
+                    print('Bitte die korrekte Menge an Salz eingeben.'+'\n')
+                    inp = input()
+                    self.dough_0.salt
+                case '5':
+                    print('Bitte die korrekte Menge an Zucker eingeben.'+'\n')
+                    inp = input()
+                    self.dough_0.sugar
+                case '6':
+                    print('Bitte die korrekte Menge an Butter eingeben.'+'\n')
+                    inp = input()
+                    self.dough_0.butter
+                case '7':
+                    print('Bitte die korrekte Menge an Hefe eingeben.'+'\n')
+                    inp = input()
+                    self.dough_0.yeast
             self.dough_0.updateMass() # dadurch werden die Werte in ingredients überschrieben
         return self.dough_0
 
