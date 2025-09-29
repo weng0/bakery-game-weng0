@@ -20,7 +20,7 @@ class Baker:
         '''
         #self.setNewDough()
         while self.dough_0.isFinished() == False:
-            print('Was wollen Sie hinzugeben?\n', '1.Wasser\n', '2.Mehl\n')
+            print('Was wollen Sie hinzugeben?\n', '1.Wasser\n', '2.Mehl\n','3.Milch\n','4.Salz\n','5.Zucker\n', '6.Butter\n','7.Hefe\n')
             choice = input()
             match choice:
                 case '1':
@@ -62,6 +62,6 @@ class Baker:
         '''Durch dieser Methode wird der Teig in kleineren Teile zerteilt und geformt. Der Teig wird als Parameter übergeben.'''
         pass
 
-# baker = Baker('Max','Mustermann', 3800)
-# baker.setNewDough()
-# baker.mix_ingredients()
+baker = Baker('Max','Mustermann', 3800)
+baker.setNewDough()
+baker.mix_ingredients()
