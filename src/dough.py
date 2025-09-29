@@ -13,7 +13,7 @@ class Dough: # alle eingaben
         self.ingredients = {'Wasser':self.water, 'Mehl':self.flour, 'Milch': self.milk, 'Salz':self.salt, 'Zucker':self.sugar, 'Butter':self.butter, 'Hefe':self.yeast} # Das ist die Zutatenliste
 
     def updateMass(self): # Diese Funktion aktualisiert ingredients dictionary
-        self.ingredients.update({'Wasser':self.water, 'Mehl':self.flour, 'Milk': self.milk, 'Salz':self.salt, 'Zucker':self.sugar, 'Butter':self.butter, 'Hefe':self.yeast})
+        self.ingredients.update({'Wasser':self.water, 'Mehl':self.flour, 'Milch': self.milk, 'Salz':self.salt, 'Zucker':self.sugar, 'Butter':self.butter, 'Hefe':self.yeast})
         
 
     def dough_rise(self, time) -> bool:
@@ -23,7 +23,7 @@ class Dough: # alle eingaben
         # Diese Funktion geht solange durch die Zutatenliste, bis festgestellt wird, dass ein Zutat noch fehlt
         finished = True
         for i in self.ingredients:
-            if self.ingredients[i] is None:
+            if self.ingredients[i] == None:
                 print(f'Es fehlt noch {i}!')
                 finished = False
                 break

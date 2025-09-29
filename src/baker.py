@@ -20,33 +20,34 @@ class Baker:
         '''
         #self.setNewDough()
         while self.dough_0.isFinished() == False:
+            
             print('Was wollen Sie hinzugeben?\n', '1.Wasser\n', '2.Mehl\n','3.Milch\n','4.Salz\n','5.Zucker\n', '6.Butter\n','7.Hefe\n')
             choice = input()
             match choice:
                 case '1':
                     print('Bitte die korrekte Menge an Wasser eingießen.'+'\n')
                     inp = input()
-                    self.dough_0.water = inp
+                    self.dough_0.water = inp            
                 case '2':
                     print('Bitte die korrekte Menge an Mehl eingeben.'+'\n')
                     inp = input()
-                    self.dough_0.flour = inp
+                    self.dough_0.flour = inp                
                 case '3':
                     print('Bitte die korrekte Menge an Milch eingeben.'+'\n')
                     inp = input()
-                    self.dough_0.milk = inp
+                    self.dough_0.milk = inp                 
                 case '4':
                     print('Bitte die korrekte Menge an Salz eingeben.'+'\n')
                     inp = input()
-                    self.dough_0.salt = inp
+                    self.dough_0.salt = inp                 
                 case '5':
                     print('Bitte die korrekte Menge an Zucker eingeben.'+'\n')
                     inp = input()
-                    self.dough_0.sugar = inp
+                    self.dough_0.sugar = inp 
                 case '6':
                     print('Bitte die korrekte Menge an Butter eingeben.'+'\n')
                     inp = input()
-                    self.dough_0.butter = inp
+                    self.dough_0.butter = inp 
                 case '7':
                     print('Bitte die korrekte Menge an Hefe eingeben.'+'\n')
                     inp = input()
