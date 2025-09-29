@@ -10,10 +10,10 @@ class Dough: # alle eingaben
         self.sugar = sugar
         self.butter = butter
         self.yeast = yeast
-        self.ingredients = {'Water':self.water, 'Flour':self.flour, 'Milk': self.milk, 'Salt':self.salt, 'sugar':self.sugar, 'Butter':self.butter, 'Yeast':self.yeast} # Das ist die Zutatenliste
+        self.ingredients = {'Wasser':self.water, 'Mehl':self.flour, 'Milch': self.milk, 'Salz':self.salt, 'Zucker':self.sugar, 'Butter':self.butter, 'Hefe':self.yeast} # Das ist die Zutatenliste
 
     def updateMass(self): # Diese Funktion aktualisiert ingredients dictionary
-        self.ingredients.update({'Water':self.water, 'Flour':self.flour, 'Milk': self.milk, 'Salt':self.salt, 'sugar':self.sugar, 'Butter':self.butter, 'Yeast':self.yeast})
+        self.ingredients.update({'Wasser':self.water, 'Mehl':self.flour, 'Milk': self.milk, 'Salz':self.salt, 'Zucker':self.sugar, 'Butter':self.butter, 'Hefe':self.yeast})
         
 
     def dough_rise(self, time) -> bool:
