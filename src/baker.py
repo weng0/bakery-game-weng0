@@ -9,6 +9,7 @@ class Baker:
         self.surname = surname
         self.salary = salary
         self.dough_0 = None
+        self.dough_list = []
 
     def setNewDough(self):
         self.dough_0 = Dough()
@@ -61,15 +62,21 @@ class Baker:
     def devide_and_form(self): # statt form_dough
         '''Durch dieser Methode wird der Teig in kleineren Stücke zerteilt und geformt.
         Rückgabewert: Liste an Teigklumpen'''
-        # Der dough_0 Masse wird solange durch ein Portion (90.55g) geteilt bis von der dough_0 Masse nichts mehr übrig bleigt.
+        # Dem dough_0 Masse wird solange ein Portion (90.55g) abgezogen bis von der dough_0 Masse nichts mehr übrig bleibt.
         # Danach wird self.dough_0 wieder auf None gesetzt
         # Ergebnis soll eine Liste an Teigklumpen sein
         one_mass = self.dough_0.mass
-        one_portion = 90.55 # in Gramm
-        
-        portions = one_mass // one_portion # Anzahl an Portionen berechnet
+        one_portion = 90.55 # in Gramm, siehe Kommentar bei class Dough member variablen
+        portions = one_mass // one_portion # berechnet Anzahl an Portionen
         rest = one_mass % one_portion # Der Rest, der nicht weiter geteilt werden kann
 
+        for p in portions:
+            one_mass = one_mass - one_portion
+            self.dough_list.append(Dough(15, 50, 15.45, 0.5, 0.4, 5, 4.2)) # ein Portion wird erzeugt und in die Reserve abgelegt
+            if p == portions: # Der kleinerer Rest wird in die letze Portion reingeknetet
+                rest = rest + portions # ?% + 100%
+                multiplier = (rest*100//one_portion)/100 # ungefähr 1.?%
+                self.dough_list.append(Dough(15*multiplier, 50*multiplier, 15.45*multiplier, 0.5*multiplier, 0.4*multiplier, 5*multiplier, 4.2*multiplier))
 
 baker = Baker('Max','Mustermann', 3800)
 baker.setNewDough()

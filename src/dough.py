@@ -1,7 +1,8 @@
 '''
 Der Teig kommt zustande, wenn man alle benötigen Zutaten zusammen gemischt hat
 '''
-class Dough: # 1 Portion
+class Dough:
+    # 1 Portion
     def __init__(self, water=None, flour=None, milk=None, salt=None, sugar=None, butter=None, yeast=None):
         self.water = water # 15ml = 15g
         self.flour = flour # 50g
@@ -18,7 +19,7 @@ class Dough: # 1 Portion
         self.ingredients.update({'Wasser':self.water, 'Mehl':self.flour, 'Milch': self.milk, 'Salz':self.salt, 'Zucker':self.sugar, 'Butter':self.butter, 'Hefe':self.yeast})
         mass = 0
         for i in self.ingredients:
-            if i != None:   # neu nach fehlermeldung unsupported operand type(s) for +=: 'int' and 'NoneType'
+            if i != None:
                 mass = mass + self.ingredients[i]
         self.mass = mass
         
