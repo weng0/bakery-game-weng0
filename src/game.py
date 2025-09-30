@@ -16,10 +16,6 @@ class Game:
         baker.mix_ingredients()
         baker.knead_dough()
         many_dough = baker.devide_and_form() # Liste an Teigklumpen
-        
-        print(baker.dough_list)
-        print(len(baker.dough_list))
-        print(baker.dough_list[10].ingredients)
 
         breads_not_baked = baker.form_bread(many_dough)
         oven = Oven()
