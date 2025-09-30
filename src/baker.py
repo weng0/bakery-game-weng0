@@ -3,6 +3,7 @@ Der Bäcker und alle seine Tätigkeiten
 '''
 from dough import Dough
 from bread import Bread
+from oven import Oven
 
 class Baker:
     def __init__(self, first_name, surname, salary):
@@ -90,3 +91,15 @@ class Baker:
             #new_bread = Bread(x)
             self.bread_list.append(Bread(x))
         return self.bread_list
+    
+    def put_bread_into_oven(self, bread_list : Bread, oven : Oven):
+        # Eingabe: Brote aus der Reserve in den Ofen schieben
+        # Ausgabe: gebackene Brote
+        for b in bread_list:
+            x = bread_list.pop()
+            oven.bread_list.append(x)
+        # setTimer
+        # setTemperature
+        # if Zeitabgelaufen dann:
+            #b.setBaked() # Brote sind gebacken
+        return None
