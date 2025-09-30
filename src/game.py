@@ -22,6 +22,7 @@ class Game:
 
         breads_not_baked = baker.form_bread(many_dough)
         baker.put_bread_into_oven(breads_not_baked)
+        baker.take_bread_into_boxes()
 
 game = Game()
 game.play()

@@ -15,7 +15,7 @@ class Oven:
         '''Temperatur festlegen'''
         self.temperature = temperature
 
-    def countdown_timer(self, h, m, s): #def setTimer
+    def countdown_timer(self, h, m, s):
         '''Zeit zum Backen festlegen'''
         self.total_seconds = h *3600 + m * 60 + s
 
@@ -23,4 +23,4 @@ class Oven:
             timer = datetime.timedelta(seconds=self.total_seconds)
             time.sleep(1)
             self.total_seconds -= 1
-        print("Bzzzt! The countdown is at zero seconds!")
+        print("Bzzzt! Die Brote sind fertig!")
