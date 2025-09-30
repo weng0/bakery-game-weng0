@@ -23,4 +23,5 @@ class Oven:
             timer = datetime.timedelta(seconds=self.total_seconds)
             time.sleep(1)
             self.total_seconds -= 1
+            print("Bitte warten...")
         print("Bzzzt! Die Brote sind fertig!")

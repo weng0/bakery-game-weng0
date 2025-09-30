@@ -100,11 +100,11 @@ class Baker:
             x = bread_list.pop()
             oven.bread_list.append(x)
 
-        temperature = int(input()) # Celsius ist int?
+        temperature = int(input('Bitte die Backtemperatur einstellen: \n')) # Celsius ist int?
         oven.setTemperature(temperature)
         #hour = int(input())
         #min = int(input())
-        sec = int(input())
+        sec = int(input('Bitte den Timer einstellen : \n'))
         oven.countdown_timer(0,0,sec)
         if oven.total_seconds == 0:
             for b in oven.bread_list:
@@ -115,3 +115,4 @@ class Baker:
         for b in bread_list:
             x = bread_list.pop()
             box.bread_list.append(x)
+        print("Brote sind in der Box")
