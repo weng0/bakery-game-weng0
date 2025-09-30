@@ -2,6 +2,7 @@
 Der Bäcker und alle seine Tätigkeiten
 '''
 from dough import Dough
+from bread import Bread
 
 class Baker:
     def __init__(self, first_name, surname, salary):
@@ -9,7 +10,8 @@ class Baker:
         self.surname = surname
         self.salary = salary
         self.dough_0 = None
-        self.dough_list = []
+        self.dough_list = [] # Reserve
+        self.bread_list = [] # Reserve
 
     def setNewDough(self):
         self.dough_0 = Dough()
@@ -79,12 +81,10 @@ class Baker:
                 multiplier = (rest*100//one_portion)/100 # ungefähr 1.?%
                 self.dough_list.append(Dough(15*multiplier, 50*multiplier, 15.45*multiplier, 0.5*multiplier, 0.4*multiplier, 5*multiplier, 4.2*multiplier))
         return self.dough_list
+    
+    def form_bread(self, dough_list : Dough):
+        # Eingabeparameter: dough_list
+        # Objekte aus dough_list werden eins nach dem anderen rausgenommen und den Objekten der Klasse Brot zugeordnet
+        # Rückgabewert: Liste an ungebackenen Brote
+        return self.bread_list
 
-baker = Baker('Max','Mustermann', 3800)
-baker.setNewDough()
-baker.mix_ingredients()
-baker.knead_dough()
-baker.devide_and_form()
-print(baker.dough_list)
-print(len(baker.dough_list))
-print(baker.dough_list[10].ingredients)
