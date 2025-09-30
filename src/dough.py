@@ -13,13 +13,13 @@ class Dough:
         self.yeast = yeast # 1 Würfel=42g , 0.1Würfel= 4.2g
         self.ingredients = {'Wasser':self.water, 'Mehl':self.flour, 'Milch': self.milk, 'Salz':self.salt, 'Zucker':self.sugar, 'Butter':self.butter, 'Hefe':self.yeast} # Das ist die Zutatenliste
         self.kneaded : bool = False
-        self.mass : int = 0
+        self.mass : float = 0 # changed from int to float
 
     def updateMass(self): # Diese Funktion aktualisiert den Inhalt, die der Masse hinzugefügt wurden, und rechnet aus, wie schwer die akutelle Teigmasse ist
         self.ingredients.update({'Wasser':self.water, 'Mehl':self.flour, 'Milch': self.milk, 'Salz':self.salt, 'Zucker':self.sugar, 'Butter':self.butter, 'Hefe':self.yeast})
         mass = 0
         for i in self.ingredients:
-            if i != None:
+            if self.ingredients[i] != None:
                 mass = mass + self.ingredients[i]
         self.mass = mass
         

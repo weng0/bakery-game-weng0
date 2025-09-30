@@ -26,31 +26,31 @@ class Baker:
             match choice:
                 case '1':
                     print('Bitte die korrekte Menge an Wasser eingießen.'+'\n')
-                    inp = input()
-                    self.dough_0.water = inp     # neu nach fehlermeldu unsupported operand type(s) for +=: 'int' and 'NoneType'        
+                    inp = int(input())
+                    self.dough_0.water = inp       
                 case '2':
                     print('Bitte die korrekte Menge an Mehl eingeben.'+'\n')
-                    inp = input()
+                    inp = int(input())
                     self.dough_0.flour = inp                
                 case '3':
                     print('Bitte die korrekte Menge an Milch eingeben.'+'\n')
-                    inp = input()
+                    inp = int(input())
                     self.dough_0.milk = inp                 
                 case '4':
                     print('Bitte die korrekte Menge an Salz eingeben.'+'\n')
-                    inp = input()
+                    inp = int(input())
                     self.dough_0.salt = inp                 
                 case '5':
                     print('Bitte die korrekte Menge an Zucker eingeben.'+'\n')
-                    inp = input()
+                    inp = int(input())
                     self.dough_0.sugar = inp 
                 case '6':
                     print('Bitte die korrekte Menge an Butter eingeben.'+'\n')
-                    inp = input()
+                    inp = int(input())
                     self.dough_0.butter = inp 
                 case '7':
                     print('Bitte die korrekte Menge an Hefe eingeben.'+'\n')
-                    inp = input()
+                    inp = int(input())
                     self.dough_0.yeast = inp
             self.dough_0.updateMass() # dadurch werden die Werte in ingredients überschrieben
         return self.dough_0
@@ -67,7 +67,8 @@ class Baker:
         # Ergebnis soll eine Liste an Teigklumpen sein
         one_mass = self.dough_0.mass
         one_portion = 90.55 # in Gramm, siehe Kommentar bei class Dough member variablen
-        portions = one_mass // one_portion # berechnet Anzahl an Portionen
+        portions_float = one_mass // one_portion # berechnet Anzahl an Portionen
+        portions = int(portions_float)
         rest = one_mass % one_portion # Der Rest, der nicht weiter geteilt werden kann
 
         for p in portions:
@@ -81,5 +82,5 @@ class Baker:
 baker = Baker('Max','Mustermann', 3800)
 baker.setNewDough()
 baker.mix_ingredients()
-#baker.knead_dough()
-#baker.devide_and_form()
+baker.knead_dough()
+baker.devide_and_form()
