@@ -16,6 +16,11 @@ class Dough: # 1 Portion
 
     def updateMass(self): # Diese Funktion aktualisiert den Inhalt, die der Masse hinzugefügt wurden, und rechnet aus, wie schwer die akutelle Teigmasse ist
         self.ingredients.update({'Wasser':self.water, 'Mehl':self.flour, 'Milch': self.milk, 'Salz':self.salt, 'Zucker':self.sugar, 'Butter':self.butter, 'Hefe':self.yeast})
+        mass = 0
+        for i in self.ingredients:
+            if i != None:   # neu nach fehlermeldung unsupported operand type(s) for +=: 'int' and 'NoneType'
+                mass = mass + self.ingredients[i]
+        self.mass = mass
         
     def dough_rise(self, time) -> bool:
         pass
