@@ -105,6 +105,8 @@ class Baker:
         #min = int(input())
         sec = int(input())
         oven.countdown_timer(0,0,sec)
-        if oven.total_seconds == 0: b.setBaked() # wenn Zeit abgelaufen, dann sind die Brote fertig
+        if oven.total_seconds == 0:
+            for b in oven.bread_list:
+                b.setBaked() # wenn Zeit abgelaufen, dann sind die Brote fertig
         return None
     
