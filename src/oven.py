@@ -1,11 +1,13 @@
 '''
 Klasse Ofen fürs Brotbacken
 '''
+from bread import Bread
+
 class Oven:
-    def __init__(self, temperature, timer, dough):
-        self.temperature = temperature
-        self.timer = timer
-        self.dough = dough # Bitte korrigieren: Übergabeparameter soll eine Liste/Array an ungebackenen Brote sein
+    def __init__(self):
+        self.temperature = None
+        self.timer = 0
+        self.bread_list = [] # Bitte korrigieren: Übergabeparameter soll eine Liste/Array an ungebackenen Brote sein
 
     def setTemperature(self, temperature):
         '''Temperatur festlegen'''
