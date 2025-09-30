@@ -14,12 +14,13 @@ class Game:
         baker.setNewDough()
         baker.mix_ingredients()
         baker.knead_dough()
-        baker.devide_and_form()
+        many_dough = baker.devide_and_form() # Liste an Teigklumpen
+        
         print(baker.dough_list)
         print(len(baker.dough_list))
         print(baker.dough_list[10].ingredients)
 
-        baker.form_bread() # 
+        baker.form_bread(many_dough)
 
 game = Game()
 game.play()

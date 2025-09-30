@@ -1,12 +1,15 @@
 '''
 Brot
 '''
+from dough import Dough
+
 class Bread:
-    # Ein Brot hat zwei Zustände:
-    # ungebacken=False und gebacken=True
-    def __init__(self,baked=False):
+    # Brot besteht ursprünglich aus Teig
+    # Ein Brot hat zwei Zustände: 1) ungebacken=False und 2) gebacken=True
+    def __init__(self,dough : Dough, baked=False):
         self.baked = baked
+        self.dough = dough
 
     # Diese Funktion setzt den Zustand des Brotes auf gebacken
-    def isBaked(self): 
+    def setBaked(self): 
         self.baked = True
