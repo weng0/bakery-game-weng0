@@ -2,17 +2,25 @@
 Klasse Ofen fürs Brotbacken
 '''
 from bread import Bread
+import time
+import datetime
 
 class Oven:
     def __init__(self):
         self.temperature = None
-        self.timer = 0
-        self.bread_list = [] # Bitte korrigieren: Übergabeparameter soll eine Liste/Array an ungebackenen Brote sein
+        self.total_seconds = 0
+        self.bread_list = []
 
     def setTemperature(self, temperature):
         '''Temperatur festlegen'''
         self.temperature = temperature
 
-    def setTimer(self, timer):
+    def countdown_timer(self, h, m, s): #def setTimer
         '''Zeit zum Backen festlegen'''
-        self.timer = timer
+        self.total_seconds = h *3600 + m * 60 + s
+
+        while self.total_seconds >0:
+            timer = datetime.timedelta(seconds=self.total_seconds)
+            time.sleep(1)
+            self.total_seconds -= 1
+        print("Bzzzt! The countdown is at zero seconds!")
