@@ -20,7 +20,8 @@ class Game:
         print(len(baker.dough_list))
         print(baker.dough_list[10].ingredients)
 
-        baker.form_bread(many_dough)
+        breads_not_baked = baker.form_bread(many_dough)
+        baker.put_bread_into_oven(breads_not_baked)
 
 game = Game()
 game.play()

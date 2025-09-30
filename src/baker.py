@@ -98,8 +98,13 @@ class Baker:
         for b in bread_list:
             x = bread_list.pop()
             oven.bread_list.append(x)
-        # setTimer
-        # setTemperature
-        # if Zeitabgelaufen dann:
-            #b.setBaked() # Brote sind gebacken
+
+        temperature = int(input()) # Celsius ist int?
+        oven.setTemperature(temperature)
+        #hour = int(input())
+        #min = int(input())
+        sec = int(input())
+        oven.countdown_timer(0,0,sec)
+        if oven.total_seconds == 0: b.setBaked() # wenn Zeit abgelaufen, dann sind die Brote fertig
         return None
+    
