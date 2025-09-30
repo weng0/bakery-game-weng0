@@ -4,6 +4,7 @@ Der Bäcker und alle seine Tätigkeiten
 from dough import Dough
 from bread import Bread
 from oven import Oven
+from box import Box
 
 class Baker:
     def __init__(self, first_name, surname, salary):
