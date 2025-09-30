@@ -78,9 +78,13 @@ class Baker:
                 rest = rest + portions # ?% + 100%
                 multiplier = (rest*100//one_portion)/100 # ungefähr 1.?%
                 self.dough_list.append(Dough(15*multiplier, 50*multiplier, 15.45*multiplier, 0.5*multiplier, 0.4*multiplier, 5*multiplier, 4.2*multiplier))
+        return self.dough_list
 
 baker = Baker('Max','Mustermann', 3800)
 baker.setNewDough()
 baker.mix_ingredients()
 baker.knead_dough()
 baker.devide_and_form()
+print(baker.dough_list)
+print(len(baker.dough_list))
+print(baker.dough_list[10].ingredients)
