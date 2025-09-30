@@ -71,7 +71,7 @@ class Baker:
         portions = int(portions_float)
         rest = one_mass % one_portion # Der Rest, der nicht weiter geteilt werden kann
 
-        for p in portions:
+        for p in range(portions):
             one_mass = one_mass - one_portion
             self.dough_list.append(Dough(15, 50, 15.45, 0.5, 0.4, 5, 4.2)) # ein Portion wird erzeugt und in die Reserve abgelegt
             if p == portions: # Der kleinerer Rest wird in die letze Portion reingeknetet
