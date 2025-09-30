@@ -4,6 +4,7 @@ Hier wird die Spielmechanik implementiert
 from baker import Baker
 from oven import Oven
 from bread import Bread
+from box import Box
 
 class Game:
     def __init__(self):
@@ -21,8 +22,10 @@ class Game:
         print(baker.dough_list[10].ingredients)
 
         breads_not_baked = baker.form_bread(many_dough)
-        baker.put_bread_into_oven(breads_not_baked)
-        baker.take_bread_into_boxes()
+        oven = Oven()
+        baked_bread = baker.put_bread_into_oven(breads_not_baked, oven)
+        box = Box()
+        baker.take_bread_into_boxes(baked_bread, box)
 
 game = Game()
 game.play()
