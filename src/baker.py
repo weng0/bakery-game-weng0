@@ -108,5 +108,9 @@ class Baker:
         if oven.total_seconds == 0:
             for b in oven.bread_list:
                 b.setBaked() # wenn Zeit abgelaufen, dann sind die Brote fertig
-        return None
+        return oven.bread_list
     
+    def take_bread_into_boxes(self, bread_list, box : Box):
+        for b in bread_list:
+            x = bread_list.pop()
+            box.bread_list.append(x)
