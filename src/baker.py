@@ -26,7 +26,7 @@ class Baker:
                 case '1':
                     print('Bitte die korrekte Menge an Wasser eingießen.'+'\n')
                     inp = input()
-                    self.dough_0.water = inp            
+                    self.dough_0.water = inp     # neu nach fehlermeldu unsupported operand type(s) for +=: 'int' and 'NoneType'        
                 case '2':
                     print('Bitte die korrekte Menge an Mehl eingeben.'+'\n')
                     inp = input()
@@ -58,10 +58,21 @@ class Baker:
         '''Teig wird geknetet. Setzt den Zustand auf 'Teig geknetet', in Form einer bool-Wert'''
         self.dough_0.kneaded = True
 
-    def devide_and_form(self, something): # statt form_dough
-        '''Durch dieser Methode wird der Teig in kleineren Teile zerteilt und geformt. Der Teig wird als Parameter übergeben.'''
-        pass
+    def devide_and_form(self): # statt form_dough
+        '''Durch dieser Methode wird der Teig in kleineren Stücke zerteilt und geformt.
+        Rückgabewert: Liste an Teigklumpen'''
+        # Der dough_0 Masse wird solange durch ein Portion (90.55g) geteilt bis von der dough_0 Masse nichts mehr übrig bleigt.
+        # Danach wird self.dough_0 wieder auf None gesetzt
+        # Ergebnis soll eine Liste an Teigklumpen sein
+        one_mass = self.dough_0.mass
+        one_portion = 90.55 # in Gramm
+        
+        portions = one_mass // one_portion # Anzahl an Portionen berechnet
+        rest = one_mass % one_portion # Der Rest, der nicht weiter geteilt werden kann
+
 
 baker = Baker('Max','Mustermann', 3800)
 baker.setNewDough()
 baker.mix_ingredients()
+#baker.knead_dough()
+#baker.devide_and_form()
