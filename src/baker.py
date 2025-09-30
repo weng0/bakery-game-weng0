@@ -86,5 +86,7 @@ class Baker:
         # Eingabeparameter: dough_list
         # Objekte aus dough_list werden eins nach dem anderen rausgenommen und den Objekten der Klasse Brot zugeordnet
         # Rückgabewert: Liste an ungebackenen Brote
+        for x in dough_list:
+            #new_bread = Bread(x)
+            self.bread_list.append(Bread(x))
         return self.bread_list
-
