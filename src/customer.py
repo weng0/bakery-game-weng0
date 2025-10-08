@@ -11,4 +11,17 @@ class Customer:
         self.plz = plz
         self.ort = ort
 
-    
+    def to_be_contacted(self): pass
+        # wird von uns kontaktiert
+
+    def generate_demand(self): pass
+        # die Menge an Bedarf des Kunden wird zufällig generiert
+
+    def take_order(self): pass
+        # Kunde nimmt die Bestellung auf
+
+    def pay_the_bill(self): pass
+        # Kunde zahlt die Rechnung
+
+    def print_order_bill(self): pass
+        # Rechnung wird erstellt und gedruckt
