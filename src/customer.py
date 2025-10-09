@@ -21,7 +21,7 @@ class Customer:
         self.is_contacted : bool = False
         self.has_take_order : bool = False
         self.got_bill : bool = False
-        self.pay = 0
+        self.need_to_pay = 0
         self.boxes_of_breads = None
 
     def to_be_contacted(self, is_contacted) -> bool:
@@ -55,6 +55,9 @@ class Customer:
         else:
             print("Hat keine Bestellung bei uns gemacht.")
 
+    def set_final_price(self, single_price):
+        self.need_to_pay = self.bread_demand * single_price
+
     def print_order(self):
         # druckt Bestellung aus
         print(f"##########################")
@@ -63,7 +66,7 @@ class Customer:
         print(f"# Kaufdatum: 'getTime()' #")
         print(f"# Liefertermin: 'heute oder morgen' #")
         print(f"# Beschreibung der Bestellung: 'welcher Brotsorte und Menge' #")
-        print(f"# Preis der Bestellung: {self.bread_demand * Bread.e_preis}  #")
+        print(f"# Preis der Bestellung: {self.need_to_pay}  #")
         print(f"# Lieferadresse: {self.strasse},{self.plz},{self.ort} #")
         print(f"# Name des Verkäufers: Simple Bakery #")
         print(f"# Rechnungsadresse:  #")
@@ -72,10 +75,10 @@ class Customer:
     def pay_bill_take_bread(self, boxes : Box_Stack):
         # Kunde zahlt die Rechnung
         if self.got_bill == True:
-            self.pay = self.bread_demand * Bread.e_preis
-            payment = self.pay
+            
             # Brötchen in unsere Reserve wird weniger
             self.boxes_of_breads = boxes
+            payment = self.need_to_pay
             return payment
         
     def print_bill(self):
@@ -90,7 +93,7 @@ class Customer:
             print(f"# Preis jedes bestellten Artikels: #")
             print(f"# Name des Verkäufers: Simple Bakery #")
             print(f"# Rechnungsadresse: - #")
-            print(f"# Fälliger Gesamtbetrag: {self.bread_demand * Bread.e_preis} #")
+            print(f"# Fälliger Gesamtbetrag: {self.need_to_pay} #")
             print(f"# Steuern: - #")
             print(f"# Zahlungsbedingung: Überweisung #")
             print(f"################")
@@ -124,7 +127,8 @@ boxes = Box_Stack()
 customer_list[popup].generate_demand(true_false)
 customer_list[popup].to_be_contacted(True)
 customer_list[popup].take_order()
-customer_list[popup].print_order_bill()
+customer_list[popup].print_bill()
+customer_list[popup].set_final_price(1.20)
 verdient = customer_list[popup].pay_bill_take_bread(boxes)
 print(verdient)
 
