@@ -51,25 +51,27 @@ class Customer:
         # Kunde nimmt die Bestellung auf
         if self.is_contacted == True:
             self.has_take_order = True
-            # druckt Bestellung aus
-            print(f"##########################")
-            print(f"# Bestellung von {self.company_name} #")
-            print(f"#--------------------------------#")
-            print(f"# Kaufdatum: 'getTime()' #")
-            print(f"# Liefertermin: 'heute oder morgen' #")
-            print(f"# Beschreibung der Bestellung: 'welcher Brotsorte und Menge' #")
-            print(f"# Preis der Bestellung:   #")
-            print(f"# Lieferadresse: {self.strasse},{self.plz},{self.ort} #")
-            print(f"# Name des Verkäufers: Simple Bakery #")
-            print(f"# Rechnungsadresse:  #")
-            print(f"##########################")
         else:
             print("Hat keine Bestellung bei uns gemacht.")
+
+    def print_order(self):
+        # druckt Bestellung aus
+        print(f"##########################")
+        print(f"# Bestellung von {self.company_name} #")
+        print(f"#--------------------------------#")
+        print(f"# Kaufdatum: 'getTime()' #")
+        print(f"# Liefertermin: 'heute oder morgen' #")
+        print(f"# Beschreibung der Bestellung: 'welcher Brotsorte und Menge' #")
+        print(f"# Preis der Bestellung:   #")
+        print(f"# Lieferadresse: {self.strasse},{self.plz},{self.ort} #")
+        print(f"# Name des Verkäufers: Simple Bakery #")
+        print(f"# Rechnungsadresse:  #")
+        print(f"##########################")
 
     def pay_bill_take_bread(self, boxes : Box_Stack):
         # Kunde zahlt die Rechnung
         if self.got_bill == True:
-            self.pay = 20.00
+            self.pay = 20.00 # bitter ändern!!!
             payment = self.pay
             # Brötchen in unsere Reserve wird weniger
             self.boxes_of_breads = boxes
@@ -106,7 +108,7 @@ class Customer:
 # customer_4 : Customer
 
 customer_list = []
-customer_list.append(Customer("Bäckerei To Go", "to.go.bk@mail.de", '01765201845', 'Mustermannstr. 17', '80335', 'München'))
+customer_list.append(Customer("Brot To Go", "brot.to.go@mail.de", '01765201845', 'Mustermannstr. 17', '80335', 'München'))
 customer_list.append(Customer("Bäckerei Brot & Herz", "brotuherz.bk@mail.de", '01765201846', 'Max-Mustermannstr. 3', '80331', 'München'))
 customer_list.append(Customer("Oma Emmy's Bäckerei", "oma.emmyBaekerei@mail.de", '01765201844', 'Max-Mustermann-Platz 8', '80331', 'München'))
 
@@ -114,7 +116,14 @@ customer_list.append(Customer("Oma Emmy's Bäckerei", "oma.emmyBaekerei@mail.de"
 popup = random.randint(0,2)
 nachfrage_klein = [True, False] # True=0, False=1
 true_false = random.randint(0,1)
+boxes = Box_Stack()
 customer_list[popup].generate_demand(true_false)
+customer_list[popup].to_be_contacted(True)
+customer_list[popup].take_order()
+customer_list[popup].print_order_bill()
+verdient = customer_list[popup].pay_bill_take_bread(boxes)
+print(verdient)
+
 
 'Quest'
 
@@ -127,5 +136,5 @@ customer_list[popup].generate_demand(true_false)
 - Kunde erhält (Kasten mit) Brote: breads.append(bread)
 - Brote aus unsere Reserve wird weniger
 - Kunden zufällig generieren durch neue Klasse/Funktion
-
+- Funktion für das Kalkulieren von Einzel- und Gesamtpreis
 '''
