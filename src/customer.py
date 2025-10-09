@@ -89,14 +89,29 @@ class Customer:
             print(f"################")
         else: print("Existiert nicht")
 
+# customer_1 = Customer("Oma Emmy's Bäckerei", "oma.emmyBaekerei@mail.de", '01765201844', 'Max-Mustermann-Platz 8', '80331', 'München')
+# customer_1.generate_demand(True)
+# customer_1.to_be_contacted(True)
+# customer_1.take_order()
+# customer_1.print_order_bill()
+# verdient = customer_1.pay_bill_take_bread()
+# print(verdient)
 
-customer_1 = Customer("Oma Emmy's Bäckerei", "oma.emmyBaekerei@mail.de", '01765201844', 'Max-Mustermann-Platz 8', '80331', 'München')
-customer_1.generate_demand(True)
-customer_1.to_be_contacted(True)
-customer_1.take_order()
-customer_1.print_order_bill()
-verdient = customer_1.pay_bill_take_bread()
-print(verdient)
+# customer_2 : Customer
+# customer_3 : Customer
+# customer_4 : Customer
+
+customer_list = []
+customer_list.append(Customer("Bäckerei To Go", "to.go.bk@mail.de", '01765201845', 'Mustermannstr. 17', '80335', 'München'))
+customer_list.append(Customer("Bäckerei Brot & Herz", "brotuherz.bk@mail.de", '01765201846', 'Max-Mustermannstr. 3', '80331', 'München'))
+customer_list.append(Customer("Oma Emmy's Bäckerei", "oma.emmyBaekerei@mail.de", '01765201844', 'Max-Mustermann-Platz 8', '80331', 'München'))
+
+'Kunden zufällig generieren'
+popup = random.randint(0,2)
+nachfrage_klein = [True, False] # True=0, False=1
+true_false = random.randint(0,1)
+customer_list[popup].generate_demand(true_false)
+
 
 ''' Erweiterungen:
 - Klasse Bestellung/Warenkorb
@@ -106,6 +121,6 @@ print(verdient)
 - Steuern berücksichtigen
 - Kunde erhält (Kasten mit) Brote: breads.append(bread)
 - Brote aus unsere Reserve wird weniger
-- Kunden zufällig generieren durch neue Klasse/Funktion Anzeige
+- Kunden zufällig generieren durch neue Klasse/Funktion
 
 '''
