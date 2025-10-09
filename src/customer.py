@@ -2,6 +2,7 @@
 Kunden
 '''
 from box import Box_Stack
+from bread import Bread
 import random
 random.seed()
 
@@ -62,7 +63,7 @@ class Customer:
         print(f"# Kaufdatum: 'getTime()' #")
         print(f"# Liefertermin: 'heute oder morgen' #")
         print(f"# Beschreibung der Bestellung: 'welcher Brotsorte und Menge' #")
-        print(f"# Preis der Bestellung:   #")
+        print(f"# Preis der Bestellung: {self.bread_demand * Bread.e_preis}  #")
         print(f"# Lieferadresse: {self.strasse},{self.plz},{self.ort} #")
         print(f"# Name des Verkäufers: Simple Bakery #")
         print(f"# Rechnungsadresse:  #")
@@ -71,7 +72,7 @@ class Customer:
     def pay_bill_take_bread(self, boxes : Box_Stack):
         # Kunde zahlt die Rechnung
         if self.got_bill == True:
-            self.pay = 20.00 # bitter ändern!!!
+            self.pay = self.bread_demand * Bread.e_preis
             payment = self.pay
             # Brötchen in unsere Reserve wird weniger
             self.boxes_of_breads = boxes
@@ -89,11 +90,14 @@ class Customer:
             print(f"# Preis jedes bestellten Artikels: #")
             print(f"# Name des Verkäufers: Simple Bakery #")
             print(f"# Rechnungsadresse: - #")
-            print(f"# Fälliger Gesamtbetrag: - #")
+            print(f"# Fälliger Gesamtbetrag: {self.bread_demand * Bread.e_preis} #")
             print(f"# Steuern: - #")
             print(f"# Zahlungsbedingung: Überweisung #")
             print(f"################")
         else: print("Existiert nicht")
+
+    def reset_to_default_state(): pass
+
 
 # customer_1 = Customer("Oma Emmy's Bäckerei", "oma.emmyBaekerei@mail.de", '01765201844', 'Max-Mustermann-Platz 8', '80331', 'München')
 # customer_1.generate_demand(True)
@@ -124,7 +128,6 @@ customer_list[popup].print_order_bill()
 verdient = customer_list[popup].pay_bill_take_bread(boxes)
 print(verdient)
 
-
 'Quest'
 
 ''' Erweiterungen:
@@ -132,9 +135,15 @@ print(verdient)
 - Kunde hat eine Liste an Bestellungen bei uns
 - neue Bestellungen hinzufügen durch bestell_list.append(bestellung)
 - Bestellungen/Rechnungen abhacken
+
+- komplexere Funktion für das Kalkulieren von Einzel- und Gesamtpreis bei Bestellungen mit verschiedene Brotsorten
 - Steuern berücksichtigen
+- Kunden zufällig generieren durch customer_info.txt und Dateizugriff
+- Extra Klasse für das Kunden Zufallsgenerator
+
+erledigt:
 - Kunde erhält (Kasten mit) Brote: breads.append(bread)
 - Brote aus unsere Reserve wird weniger
-- Kunden zufällig generieren durch neue Klasse/Funktion
-- Funktion für das Kalkulieren von Einzel- und Gesamtpreis
+- Kunden Nachfrage zufällig generieren
+- einfache Berechnung des Gesamtpreises
 '''
