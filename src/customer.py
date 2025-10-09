@@ -77,7 +77,7 @@ class Customer:
             self.boxes_of_breads = boxes
             return payment
         
-    def print_order_bill(self):
+    def print_bill(self):
         # Rechnung wird erstellt und gedruckt
         if self.has_take_order:
             self.got_bill = True
