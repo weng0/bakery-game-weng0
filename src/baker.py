@@ -130,6 +130,7 @@ class Baker:
                     one_box.bread_list[index] = bread
                     c_breads -= 1
             print("1 Box filled")
+        return box_stack
 
 
 # baker = Baker('Max','Mustermann', 3800)
