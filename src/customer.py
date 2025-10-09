@@ -1,8 +1,10 @@
 '''
 Kunden
 '''
+from box import Box_Stack
 import random
 random.seed()
+
 
 
 
@@ -19,6 +21,7 @@ class Customer:
         self.has_take_order : bool = False
         self.got_bill : bool = False
         self.pay = 0
+        self.boxes_of_breads = None
 
     def to_be_contacted(self, is_contacted) -> bool:
         # wird von uns kontaktiert
@@ -63,12 +66,13 @@ class Customer:
         else:
             print("Hat keine Bestellung bei uns gemacht.")
 
-    def pay_bill_take_bread(self):
+    def pay_bill_take_bread(self, boxes : Box_Stack):
         # Kunde zahlt die Rechnung
         if self.got_bill == True:
             self.pay = 20.00
             payment = self.pay
             # Brötchen in unsere Reserve wird weniger
+            self.boxes_of_breads = boxes
             return payment
         
     def print_order_bill(self):
@@ -112,6 +116,7 @@ nachfrage_klein = [True, False] # True=0, False=1
 true_false = random.randint(0,1)
 customer_list[popup].generate_demand(true_false)
 
+'Quest'
 
 ''' Erweiterungen:
 - Klasse Bestellung/Warenkorb
