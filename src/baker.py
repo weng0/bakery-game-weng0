@@ -5,6 +5,7 @@ from dough import Dough
 from bread import Bread
 from oven import Oven
 from box import Box
+from box import Box_Stack
 
 class Baker:
     def __init__(self, first_name, surname, salary):
@@ -111,8 +112,33 @@ class Baker:
                 b.setBaked() # wenn Zeit abgelaufen, dann sind die Brote fertig
         return oven.bread_list
     
-    def take_bread_into_boxes(self, bread_list, box : Box):
-        for b in bread_list:
-            x = bread_list.pop()
-            box.bread_list.append(x)
-        print("Brote sind in der Box")
+    def take_bread_into_boxes(self, bread_list, box_stack : Box_Stack, customer_breads):
+        boxes_needed = 0
+        c_breads = customer_breads
+        if customer_breads % 9 == 0:
+            boxes_needed = customer_breads//9+1
+        else:
+            boxes_needed = customer_breads//9
+        
+        for num in range(boxes_needed):
+            box_stack.boxes.append(Box())
+        ###
+        for one_box in box_stack.boxes:
+            for index in range(len(one_box.bread_list)): # statt range(), statt len()
+                if one_box.isFull() == False and c_breads != 0:
+                    bread = bread_list.pop()
+                    one_box.bread_list[index] = bread
+                    c_breads -= 1
+            print("1 Box filled")
+
+
+# baker = Baker('Max','Mustermann', 3800)
+# for b in range(40):
+#     baker.bread_list.append(Bread(Dough(), True))
+
+# boxes = Box_Stack()
+# baker.take_bread_into_boxes(baker.bread_list, boxes, 37)
+
+'''Verbesserung:
+- Im Funktion take_bread_into_boxes() auf Index-Out-Of-Range prüfen, sonst: "IndexError: pop from empty list"
+'''
