@@ -10,7 +10,8 @@ class Bread:
     def __init__(self,dough : Dough, baked=False):
         self.baked = baked
         self.dough = dough
-        self.e_preis = 1.20
+        self.s_price = 1.20
+        self.sort = 'standard'
 
     # Diese Funktion setzt den Zustand des Brotes auf gebacken
     def setBaked(self): 
