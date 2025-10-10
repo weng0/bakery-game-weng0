@@ -23,6 +23,7 @@ class Customer:
         self.got_bill : bool = False
         self.need_to_pay = 0
         self.boxes_of_breads = None
+        self.bill_list = []
 
     def to_be_contacted(self, is_contacted) -> bool:
         # wird von uns kontaktiert
@@ -35,17 +36,17 @@ class Customer:
             self.bread_demand = random.randint(5,20)
         else: # demand_big
             self.bread_demand = random.randint(21,40)
-        print("###############")
-        print(f"# Nachfrage bei {self.company_name} #")
-        print("#-----------------------#")
-        print(f"# Wir benötigen {self.bread_demand} Brötchen! #")
-        print(f"# Bitte nehme Kontakt mit uns auf. #")
-        print(f"# Adresse:           #")
-        print(f"# {self.strasse}, {self.plz}, {self.ort} #")
-        print("# Kontakt:                 #")
-        print(f"# Telefon {self.tel}     #")
-        print(f"# E-Mail {self.email}    #")
-        print("############### \n")
+        print("##########################################")
+        print(f"# Nachfrage bei {self.company_name}".ljust(40),'#')
+        print("# -------------------------------------- #")
+        print(f"# Wir benötigen {self.bread_demand} Brötchen!".ljust(40),'#')
+        print(f"# Bitte nehme Kontakt mit uns auf.".ljust(40), '#')
+        print(f"# Adresse:".ljust(40), '#')
+        print(f"# {self.strasse}, {self.plz}, {self.ort}".ljust(40), '#')
+        print("# Kontakt:".ljust(40), '#')
+        print(f"# Telefon {self.tel}".ljust(40), '#')
+        print(f"# E-Mail {self.email}".ljust(40), '#')
+        print("##########################################\n")
         return self.bread_demand
 
     def take_order(self):
@@ -60,17 +61,17 @@ class Customer:
 
     def print_order(self):
         # druckt Bestellung aus
-        print(f"##########################")
-        print(f"# Bestellung von {self.company_name} #")
+        print("##########################################")
+        print(f"# Bestellung von {self.company_name}".ljust(40), '#')
         print(f"#--------------------------------#")
-        print(f"# Kaufdatum: 'getTime()' #")
-        print(f"# Liefertermin: 'heute oder morgen' #")
-        print(f"# Beschreibung der Bestellung: 'welcher Brotsorte und Menge' #")
-        print(f"# Preis der Bestellung: {self.need_to_pay}  #")
-        print(f"# Lieferadresse: {self.strasse},{self.plz},{self.ort} #")
-        print(f"# Name des Verkäufers: Simple Bakery #")
-        print(f"# Rechnungsadresse:  #")
-        print(f"##########################")
+        print(f"# Kaufdatum: 'getTime()'".ljust(40), '#')
+        print(f"# Liefertermin: 'heute oder morgen'".ljust(40), '#')
+        print(f"# Beschreibung der Bestellung: 'welcher Brotsorte und Menge'".ljust(40), '#')
+        print(f"# Preis der Bestellung: {self.need_to_pay}".ljust(40), '#')
+        print(f"# Lieferadresse: {self.strasse},{self.plz},{self.ort}".ljust(40), '#')
+        print(f"# Name des Verkäufers: Simple Bakery".ljust(40), '#')
+        print(f"# Rechnungsadresse:".ljust(40), '#')
+        print("##########################################\n")
 
     def pay_bill_take_bread(self, boxes : Box_Stack):
         # Kunde zahlt die Rechnung
@@ -85,18 +86,18 @@ class Customer:
         # Rechnung wird erstellt und gedruckt
         if self.has_take_order:
             self.got_bill = True
-            print(f"################")
-            print(f"# Datum der Rechnung: 'getTime()' #")
-            print(f"# Rechnungsnummer:  #")
-            print(f"# Nummer der Bestellung:  #")
-            print(f"# Beschreibung der Bestellung: #")
-            print(f"# Preis jedes bestellten Artikels: #")
-            print(f"# Name des Verkäufers: Simple Bakery #")
-            print(f"# Rechnungsadresse: - #")
-            print(f"# Fälliger Gesamtbetrag: {self.need_to_pay} #")
-            print(f"# Steuern: - #")
-            print(f"# Zahlungsbedingung: Überweisung #")
-            print(f"################")
+            print("##########################################")
+            print(f"# Datum der Rechnung: 'getTime()'".ljust(40), '#')
+            print(f"# Rechnungsnummer:".ljust(40), '#')
+            print(f"# Nummer der Bestellung:".ljust(40), '#')
+            print(f"# Beschreibung der Bestellung:".ljust(40), '#')
+            print(f"# Preis jedes bestellten Artikels:".ljust(40), '#')
+            print(f"# Name des Verkäufers: Simple Bakery".ljust(40), '#')
+            print(f"# Rechnungsadresse: - ".ljust(40), '#')
+            print(f"# Fälliger Gesamtbetrag: {self.need_to_pay}".ljust(40), '#')
+            print(f"# Steuern: - ".ljust(40), '#')
+            print(f"# Zahlungsbedingung: Überweisung".ljust(40), '#')
+            print("##########################################")
         else: print("Existiert nicht")
 
     def reset_to_default_state(): pass
@@ -132,7 +133,6 @@ customer_list[popup].set_final_price(1.20)
 verdient = customer_list[popup].pay_bill_take_bread(boxes)
 print(verdient)
 
-'Quest'
 
 ''' Erweiterungen:
 - Klasse Bestellung/Warenkorb
@@ -140,7 +140,7 @@ print(verdient)
 - neue Bestellungen hinzufügen durch bestell_list.append(bestellung)
 - Bestellungen/Rechnungen abhacken
 
-- komplexere Funktion für das Kalkulieren von Einzel- und Gesamtpreis bei Bestellungen mit verschiedene Brotsorten
+- komplexere Funktion für das Kalkulieren von Einzel- und Gesamtpreis bei Bestellungen mit verschiedenen Brotsorten
 - Steuern berücksichtigen
 - Kunden zufällig generieren durch customer_info.txt und Dateizugriff
 - Extra Klasse für das Kunden Zufallsgenerator

@@ -5,6 +5,7 @@ from baker import Baker
 from oven import Oven
 from bread import Bread
 from box import Box
+from box import Box_Stack
 
 class Game:
     def __init__(self):
@@ -20,8 +21,8 @@ class Game:
         breads_not_baked = baker.form_bread(many_dough)
         oven = Oven()
         baked_bread = baker.put_bread_into_oven(breads_not_baked, oven)
-        box = Box()
-        baker.take_bread_into_boxes(baked_bread, box)
+        #box = Box()
+        boxes = Box_Stack()
+        baker.take_bread_into_boxes(baked_bread, boxes, 20)
+        
 
-game = Game()
-game.play()
