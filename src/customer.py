@@ -56,22 +56,23 @@ class Customer:
         # Kunde nimmt die Bestellung auf
         self.current_order = Order()
         self.current_order.zip_data(bread_type, quantity, empty_lst)
+        sum = self.current_order.sum
         if self.is_contacted == True:
             self.has_take_order = True
-            self.set_final_price(1.20)
+            self.set_final_price(sum)
             self.print_order()
         else:
             print("Hat keine Bestellung bei uns gemacht.")
 
-    def set_final_price(self, single_price):
-        self.need_to_pay = self.bread_demand * single_price
+    def set_final_price(self, sum):
+        self.need_to_pay = sum
 
     def print_order(self):
         # druckt Bestellung aus
         tuple = self.current_order.product_data
         print("#################################################")
         print(f"# Bestellung von {self.company_name}".ljust(47), '#')
-        print(f"# Bestellnr iterieren()".ljust(47), '#')
+        print(f"# Bestellnr {self.current_order.order_ID}".ljust(47), '#')
         print(f"# --------------------------------------------- #")
         print(f"# Datum: 'getTime()'".ljust(47), '#')
         print(f"# Rechnungsadresse: {self.strasse},{self.plz},{self.ort}".ljust(47), '#')
