@@ -106,7 +106,6 @@ class Customer:
             Customer.__billCounter += 1
             bill_id = str(Customer.__billCounter)
             self.bill_list.update({bill_id:self.current_order})
-            self.__remove_current_order()
             self.got_bill = True
             print("#########################################################")
             print(f"# Rechnungsnummer: {Customer.__billCounter}".ljust(55), '#')
