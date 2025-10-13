@@ -13,7 +13,7 @@ from dough import Dough
 import random
 random.seed()
 
-customer_list = []
+customer_list : Customer = []
 customer_list.append(Customer("Brot To Go", "brot.to.go@mail.de", '01765201845', 'Mustermannstr. 17', '80335', 'München'))
 customer_list.append(Customer("Bäckerei Brot & Herz", "brotuherz.bk@mail.de", '01765201846', 'Max-Mustermannstr. 3', '80331', 'München'))
 customer_list.append(Customer("Oma Emmy's Bäckerei", "oma.emmyBaekerei@mail.de", '01765201844', 'Max-Mustermann-Platz 8', '80331', 'München'))
@@ -79,7 +79,6 @@ class Game:
 
                 
                 customer_list[popup].take_order(warenkorb,menge,pos_preis) # 3 param
-                #customer_list[popup].set_final_price(1.20)
                 customer_list[popup].print_bill()
                 verdient = customer_list[popup].pay_bill_take_bread(boxes)
                 print(verdient)

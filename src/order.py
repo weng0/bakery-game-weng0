@@ -12,7 +12,7 @@ class Order:
     def zip_data(self,bread_type,quantity, pos_price):
         sum = 0
         bread_lst = []
-        single_price = []
+        single_price : float = []
         if len(bread_type) == len(quantity):
             for index in range(len(quantity)):
                 price = bread_type[index][1] * quantity[index]
