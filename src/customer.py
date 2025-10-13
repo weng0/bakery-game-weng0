@@ -77,10 +77,11 @@ class Customer:
         print(f"# Datum: 'getTime()'".ljust(47), '#')
         print(f"# Rechnungsadresse: {self.strasse},{self.plz},{self.ort}".ljust(47), '#')
         print(f"# Lieferadresse: {self.strasse},{self.plz},{self.ort}".ljust(47), '#')
-        print("# ID  Brotsorte    Menge  Einzelpreis  Netto".ljust(47), '#')
+        print(f"# ".ljust(47), '#')
+        print("# Brotsorte,Menge,Einzelpreis,Netto".replace(",","    ").ljust(47), '#')
         for e in tuple:
-            print(f"# 01 {e[0]}   {e[2]}  {e[1]}  {e[3]}", '#')
-        print(f"#    ", '#')
+            print(f"# {e[0]}".ljust(14), f"{e[2]}".ljust(8), f"{e[1]}".ljust(14), f"{e[3]}".ljust(8), '#')
+        print(f"# ".ljust(47), '#')
         print(f"# Gesamtpreis(netto): {self.need_to_pay}".ljust(47), '#')
         print(f"# Name des Verkäufers: Simple Bakery".ljust(47), '#')
         print(f"# Liefertermin: 'heute oder morgen'".ljust(47), '#')
@@ -94,22 +95,27 @@ class Customer:
             self.boxes_of_breads = boxes
             payment = self.need_to_pay
             return payment
-        
+
     def print_bill(self):
         # Rechnung wird erstellt und gedruckt
+        tuple = self.current_order.product_data
         if self.has_take_order:
             bill_id = str(Customer.__billCounter + 1)
             self.bill_list.update({bill_id:Order()})
             self.got_bill = True
+            
             print("##########################################")
             print(f"# Rechnungsnummer: {Customer.__billCounter}".ljust(47), '#')
             print(f"# Datum: 'getTime()'".ljust(47), '#')
-            print(f"# Bestellnr.:".ljust(47), '#')
-            print(f"# Kunden-ID:".ljust(47), '#')
+            print(f"# Bestellnr.: {self.current_order.order_ID}".ljust(47), '#')
+            #print(f"# Kunden-ID:".ljust(47), '#')
             print(f"# Rechnungsadresse: {self.strasse},{self.plz},{self.ort}".ljust(47), '#')
             print(f"# Lieferadresse: {self.strasse},{self.plz},{self.ort}".ljust(47), '#')
-            print("# ID  Brotsorte    Menge  Einzelpreis  Netto".ljust(47), '#')
-            print(f"# 01  Brot          {self.bread_demand}    1.20         {self.need_to_pay}".ljust(47), '#')
+            print(f"# ".ljust(47), '#')
+            print("# Brotsorte    Menge  Einzelpreis  Netto".ljust(47), '#')
+            print("# Brotsorte,Menge,Einzelpreis,Netto".replace(",","    ").ljust(47), '#')
+            for e in tuple:
+                print(f"# {e[0]}".ljust(14), f"{e[2]}".ljust(8), f"{e[1]}".ljust(14), f"{e[3]}".ljust(8), '#')
             print(f"# ".ljust(47), '#')
             print(f"# Gesamtpreis(netto): {self.need_to_pay}".ljust(47), '#')
             print(f"# Steuern: - ".ljust(40), '#')
@@ -124,20 +130,21 @@ class Customer:
 # rechnungen = {'RN001': [Brotsorte, Menge, Einzelpreis, Gesamtpreis]}
 
 
+
 ''' Erweiterungen:
 - Klasse Bestellung/Warenkorb
 - Kunde hat eine Liste an Bestellungen bei uns
 - neue Bestellungen hinzufügen durch bestell_list.append(bestellung)
 - Bestellnr und Rechnungsnr
 
-- komplexere Funktion für das Kalkulieren von Einzel- und Gesamtpreis bei Bestellungen mit verschiedenen Brotsorten
 - Steuern berücksichtigen
 - Kunden zufällig generieren durch customer_info.txt und Dateizugriff
-- Extra Klasse für das Kunden Zufallsgenerator
+- Extra Klasse für das Kunden-Zufallsgenerator
 
 erledigt:
 - Kunde erhält (Kasten mit) Brote: breads.append(bread)
 - Brote aus unsere Reserve wird weniger
 - Kunden Nachfrage zufällig generieren
 - einfache Berechnung des Gesamtpreises
+- Funktion für das Kalkulieren von Einzel- und Gesamtpreis bei Bestellungen mit verschiedenen Brotsorten
 '''
