@@ -3,30 +3,24 @@
 
 class Order:
     __idCounter : int = 123
-    def __init__(self): # take out
-        # self.bread_dict = None
-        # self.quantity = None
+    def __init__(self):
         self.sum = 0
-        self.product_data = None # setProduct()
+        self.product_data = None
         Order.__idCounter += 1
         self.order_ID = Order.__idCounter
     
-    def zip_data(self,bread_type,quantity, pos_price):# Brotsorte ist ein Dict
+    def zip_data(self,bread_type,quantity, pos_price):
         sum = 0
         bread_lst = []
-        einzel_preis = []
+        single_price = []
         if len(bread_type) == len(quantity):
             for index in range(len(quantity)):
                 price = bread_type[index][1] * quantity[index]
                 sum += price
                 bread_lst.append(bread_type[index][0])
-                einzel_preis.append(bread_type[index][1])
+                single_price.append(bread_type[index][1])
                 pos_price.append(price)
-        data_kombi_2 = zip(bread_lst,einzel_preis,quantity, pos_price)
-        self.product_data = data_kombi_2
+        product_data = list(zip(bread_lst,single_price,quantity, pos_price)) # Lösung zum Problem, dass der Inhalt im zip() nicht ausgegeben wird
+        self.product_data = product_data
         self.sum = sum
-        return data_kombi_2
-
-    # def setProduct(self):
-    #     self.product_data.update({})
-
+        return product_data
