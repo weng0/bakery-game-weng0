@@ -96,14 +96,18 @@ class Customer:
             payment = self.need_to_pay
             return payment
 
+    def __remove_current_order(self):
+        self.current_order = None
+    
     def print_bill(self):
         # Rechnung wird erstellt und gedruckt
         tuple = self.current_order.product_data
         if self.has_take_order:
-            bill_id = str(Customer.__billCounter + 1)
-            self.bill_list.update({bill_id:Order()})
+            Customer.__billCounter += 1
+            bill_id = str(Customer.__billCounter)
+            self.bill_list.update({bill_id:self.current_order})
+            self.__remove_current_order()
             self.got_bill = True
-            
             print("#########################################################")
             print(f"# Rechnungsnummer: {Customer.__billCounter}".ljust(55), '#')
             print(f"# Datum: 'getTime()'".ljust(55), '#')
